@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useCart } from '../context/CartContext'
+import SafeImage from './SafeImage'
 
 export default function CartPage({ onContinueShopping }) {
   const { items, setQuantity, removeItem, subtotal, clearCart } = useCart()
@@ -66,7 +67,7 @@ export default function CartPage({ onContinueShopping }) {
     <section className="mx-auto max-w-6xl px-4 py-12 sm:px-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="font-display text-3xl font-bold text-dark">Tu Carrito</h2>
+          <h2 className="font-display text-3xl font-bold text-dark">Tu carrito</h2>
           <p className="mt-2 text-slate">{items.length} referencias distintas</p>
         </div>
         <button
@@ -86,10 +87,12 @@ export default function CartPage({ onContinueShopping }) {
                 key={product.id}
                 className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:gap-6"
               >
-                <img
+                <SafeImage
                   src={product.image}
                   alt={product.name}
                   className="h-32 w-full rounded-lg object-cover sm:h-28 sm:w-28"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="min-w-0 flex-1">
                   <p className="font-display text-lg font-bold text-dark">{product.name}</p>

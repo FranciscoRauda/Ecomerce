@@ -11,7 +11,10 @@ export default function ProductCatalog({ onOpenProduct }) {
   }, [filter])
 
   return (
-    <section id="coleccion" className="scroll-mt-24 bg-white px-4 py-16 sm:px-8">
+    <section
+      id="coleccion"
+      className="scroll-mt-28 bg-white px-4 py-16 sm:scroll-mt-24 sm:px-6 md:px-8"
+    >
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col items-center gap-6 text-center">
           <div>
@@ -24,7 +27,7 @@ export default function ProductCatalog({ onOpenProduct }) {
             </p>
           </div>
           <div
-            className="flex flex-wrap justify-center gap-2"
+            className="scrollbar-none flex max-w-full gap-1 overflow-x-auto pb-1 md:flex-wrap md:justify-center md:gap-2 md:overflow-visible md:pb-0"
             role="tablist"
             aria-label="Categorías de producto"
           >
@@ -35,7 +38,7 @@ export default function ProductCatalog({ onOpenProduct }) {
                 role="tab"
                 aria-selected={filter === cat}
                 onClick={() => setFilter(cat)}
-                className={`px-6 py-2 text-sm font-medium transition ${
+                className={`shrink-0 whitespace-nowrap px-6 py-2 text-sm font-medium transition ${
                   filter === cat
                     ? 'text-dark underline decoration-2 underline-offset-4'
                     : 'text-slate hover:text-dark'
@@ -47,7 +50,7 @@ export default function ProductCatalog({ onOpenProduct }) {
           </div>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((product) => (
             <ProductCard
               key={product.id}

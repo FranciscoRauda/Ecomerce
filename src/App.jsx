@@ -22,7 +22,7 @@ function AppShell() {
   }
 
   return (
-    <div className="relative min-h-svh bg-cream">
+    <div className="relative min-h-svh bg-cream max-md:min-w-0 max-md:overflow-x-hidden">
       <div className="relative z-[2] flex min-h-svh flex-col">
         <Header activeView={view} onNavigate={setView} cartCount={count} />
 

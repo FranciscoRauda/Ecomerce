@@ -1,3 +1,8 @@
+import SafeImage from './SafeImage'
+import { unsplashPhoto } from '../lib/unsplashUrl'
+
+const HERO_IMG = unsplashPhoto('photo-1490114538077-0a7f8cb49891', 1000)
+
 export default function Hero({ onShop }) {
   const features = [
     {
@@ -7,7 +12,7 @@ export default function Hero({ onShop }) {
         </svg>
       ),
       title: 'Envío Gratis',
-      description: 'Compras sobre $99'
+      description: 'Compras sobre $99',
     },
     {
       icon: (
@@ -16,7 +21,7 @@ export default function Hero({ onShop }) {
         </svg>
       ),
       title: '30 Días Retorno',
-      description: 'Devoluciones fáciles'
+      description: 'Devoluciones fáciles',
     },
     {
       icon: (
@@ -25,7 +30,7 @@ export default function Hero({ onShop }) {
         </svg>
       ),
       title: 'Pago Seguro',
-      description: '100% protegido'
+      description: '100% protegido',
     },
     {
       icon: (
@@ -34,15 +39,15 @@ export default function Hero({ onShop }) {
         </svg>
       ),
       title: '24/7 Soporte',
-      description: 'Atención dedicada'
-    }
+      description: 'Atención dedicada',
+    },
   ]
 
   return (
     <>
       <section className="relative overflow-hidden bg-soft-bg">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-16 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:py-20">
-          <div className="animate-fade-up">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-16 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:py-20">
+          <div className="animate-fade-up min-w-0">
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
               PRIMAVERA/VERANO 2026
             </p>
@@ -58,19 +63,20 @@ export default function Hero({ onShop }) {
             <button
               type="button"
               onClick={onShop}
-              className="mt-8 rounded-md bg-dark px-10 py-3.5 font-semibold text-white transition hover:bg-dark/90"
+              className="mt-8 w-full rounded-md bg-dark px-10 py-3.5 font-semibold text-white transition hover:bg-dark/90 md:w-auto"
             >
               SHOP NOW
             </button>
           </div>
 
-          <div className="animate-slide-left relative">
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&q=80"
+          <div className="animate-slide-left relative min-w-0">
+            <div className="relative md:rounded-none">
+              <SafeImage
+                src={HERO_IMG}
                 alt="Modelo masculino con chaqueta estampada"
-                className="h-auto w-full object-cover"
+                className="h-auto max-h-[65vh] w-full rounded-lg object-cover md:max-h-none md:rounded-none"
                 loading="eager"
+                decoding="async"
               />
             </div>
           </div>
@@ -86,16 +92,10 @@ export default function Hero({ onShop }) {
                 className="flex items-start gap-4 animate-fade-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="shrink-0 text-dark">
-                  {feature.icon}
-                </div>
+                <div className="shrink-0 text-dark">{feature.icon}</div>
                 <div>
-                  <h3 className="font-display text-base font-bold text-dark">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-slate">
-                    {feature.description}
-                  </p>
+                  <h3 className="font-display text-base font-bold text-dark">{feature.title}</h3>
+                  <p className="mt-1 text-sm text-slate">{feature.description}</p>
                 </div>
               </div>
             ))}

@@ -77,10 +77,28 @@ export default function Footer() {
             <p className="text-xs text-slate">
               © {new Date().getFullYear()} Capile Store · Todos los derechos reservados
             </p>
-            <div className="flex items-center gap-3">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" className="h-6" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-6" />
+            <div className="flex min-w-0 flex-wrap items-center justify-center gap-2 sm:gap-3">
+              <img
+                src={`${import.meta.env.BASE_URL}brands/visa.svg`}
+                alt="Visa"
+                className="h-6 w-12 object-contain"
+                width={48}
+                height={32}
+              />
+              <img
+                src={`${import.meta.env.BASE_URL}brands/mastercard.svg`}
+                alt="Mastercard"
+                className="h-6 w-12 object-contain"
+                width={48}
+                height={32}
+              />
+              <img
+                src={`${import.meta.env.BASE_URL}brands/paypal.svg`}
+                alt="PayPal"
+                className="h-6 w-12 object-contain"
+                width={48}
+                height={32}
+              />
             </div>
           </div>
         </div>

@@ -24,6 +24,13 @@
     min-height: 100svh;
   }
 
+  @media (max-width: 767px) {
+    html,
+    body {
+      overflow-x: hidden;
+    }
+  }
+
   ::selection {
     @apply bg-accent/20 text-dark;
   }
@@ -74,11 +81,21 @@
   animation-delay: 0.4s;
 }
 
-.product-card {
-  transition: all 0.3s ease;
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+.product-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  }
 }
